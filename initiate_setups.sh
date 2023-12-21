@@ -18,5 +18,7 @@ sudo yum -y install git
 mkdir filer
 cd filer
 
-
+#Alias for Custom
+"alias cle='clear'" >> ~/.bashrc
+source ~/.bashrc
 
