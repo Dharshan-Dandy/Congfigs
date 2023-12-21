@@ -11,8 +11,6 @@ sudo yum -y install httpd
 #Enable Service
 sudo service httpd start
 
-#Git 
-sudo yum -y install git
 
 #Work_Directory
 mkdir filer
