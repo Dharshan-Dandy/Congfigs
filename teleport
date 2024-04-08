@@ -6,7 +6,7 @@ _teleport()
 	local directories typed
 	typed="${COMP_WORDS[COMP_CWORD]}"
 
-	directories=$( find /home/dandy/ -type d -not \( -ipath "*.*" -o -ipath "*ATM01*" -o -ipath "*Voice*" \) -exec basename {} \; | awk '{print $1}' )
+	directories=$( find ~/ -type d -not \( -ipath "*.*" -o -ipath "*ATM01*" -o -ipath "*Voice*" \) -exec basename {} \; | awk '{print $1}' )
 
 	COMPREPLY=( $( compgen -W "${directories}" -- "$typed" ) )
 
