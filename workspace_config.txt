@@ -1,0 +1,30 @@
+# Prompt String PS1 modified
+
+export PS1="\033[92m[\033[0m\033[1;94m\u\033[0m@\h \W\033[92m]\033[0m\n$ "
+
+function c(){
+	gcc -o ./${1%.c}.out ./$1
+	./${1%.c}.out
+}
+
+# The teleport function is used quickly navigate to specified name...
+
+function teleport(){
+	cd "$( find /home/dandy/ -type d -name $1 -not \( -ipath "*.*" -o -ipath "*ATM01*" -o -ipath "*Voice*" \)  )"
+}
+
+# User dandy's bin
+
+export PATH="$PATH:/home/dandy/.bin"
+
+# Source the * for Tab Completions stuff
+source /home/dandy/.bin/quriks
+source /home/dandy/.bin/teleport
+
+
+alias cle='clear'
+alias ls='ls -lh'
+
+# Custom hooks
+
+
