@@ -14,4 +14,8 @@ mv quriks teleport ~/.bin
 
 cat workspace_config.txt >> ~/.bashrc
 
+# source the Bashrc file
+source ~/.bashrc
+
+#Finish
 echo "Now Setups are Finished..."
