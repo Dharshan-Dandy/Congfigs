@@ -1,0 +1,15 @@
+#!/bin/bash
+
+
+_teleport()
+{
+	local directories typed
+	typed="${COMP_WORDS[COMP_CWORD]}"
+
+	directories=$( find /home/dandy/ -type d -not \( -ipath "*.*" -o -ipath "*ATM01*" -o -ipath "*Voice*" \) -exec basename {} \; | awk '{print $1}' )
+
+	COMPREPLY=( $( compgen -W "${directories}" -- "$typed" ) )
+
+}
+
+complete -F _teleport teleport

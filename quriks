@@ -1,0 +1,40 @@
+#!/bin/bash
+
+case $1 in
+	"start" | "stop" | "restart")
+		sudo systemctl $1 $2
+		if [ $? -eq 0 ] ; then
+			echo -E "${@: -1} is$(tput setaf 2 bold) $1ed.."
+		else
+			echo -E "${@: -1} is$(tput setaf 1 bold) Failed."
+		echo -E "$(tput sgr0)"i
+		fi
+		;;
+	"*" )
+		echo "Invalid $1, Sorry Dude.."
+		;;
+esac
+		
+
+_quriks()
+{
+	if [ "$3" == "quriks" ] ; then
+		COMPREPLY=( $(compgen -W "start stop restart" -- "$2" ) )
+	else
+		local current service_s
+		current="${COMP_WORDS[COMP_CWORD]}"
+	
+		service_s=$( systemctl list-units --legend=no --type service | awk '{ print $1 }' )
+
+		COMPREPLY=( $( compgen -W "${service_s}" -- "$current" ) )
+	fi
+}
+
+complete -F _quriks quriks
+
+#Description:
+#	quriks -> Some Done Strange, So I mean it as service manipulation
+#
+#In This quriks i used tab completion as well as it support for { "start", "stop", "restart" }
+#
+#quriks.......................................................................
