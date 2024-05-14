@@ -17,6 +17,6 @@ mkdir filer
 cd filer
 
 #Alias for Custom
-"alias cle='clear'" >> ~/.bashrc
+echo "alias cle='clear'" >> ~/.bashrc
 source ~/.bashrc
 
